@@ -6,4 +6,9 @@ class User < ApplicationRecord
 
   #user has_one Profile
   has_one :profile, dependent: :destroy
+
+  # User has_many Tutorials, Reviews, and Comments
+  has_many :tutorials
+  has_many :reviews
+  has_many :comments
 end

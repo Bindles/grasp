@@ -163,3 +163,22 @@ project/_rails/grasp  main ✗                                                  
 == 20230718101431 CreateComments: migrated (0.0048s) ==========================
 
 =========================================================================
+
+END:
+routes:
+  # Additional routes for tutorials, reviews, comments, etc.
+  resources :tutorials do
+    resources :reviews, only: [:create, :destroy]
+  end
+
+  resources :reviews, only: [] do
+    resources :comments, only: [:create, :destroy]
+  end
+
+  resources :comments, only: [] do
+    resources :comments, only: [:create, :destroy]
+  end
+end
+
+NEXT:
+Create the necessary controller actions and views
